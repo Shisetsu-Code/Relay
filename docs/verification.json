@@ -1,0 +1,36 @@
+{
+  "verified_at": "2026-10-27T18:06:58.082Z",
+  "python": "3.12.14",
+  "mitmproxy": "12.3.1",
+  "command": "python -B -m unittest discover -v",
+  "tests_run": 65,
+  "elapsed_seconds": 11.455,
+  "failures": 0,
+  "errors": 0,
+  "groups": {
+    "har_import": 25,
+    "launcher": 14,
+    "observer_and_raw_export": 19,
+    "real_engine_integration": 7
+  },
+  "integration_scope": [
+    "HTTP request body and duplicate headers",
+    "HTTPS CONNECT with verified certificates",
+    "compressed response byte preservation",
+    "authenticated web UI and offline HAR upload",
+    "explicit binary HAR replay",
+    "HTTP/2 HAR replay over a new HTTP/1 TLS connection",
+    "reverse relay with original Origin/Referer/body",
+    "WebSocket text and binary messages"
+  ],
+  "targets": "Controlled loopback upstreams only; no Ganamos or provider requests",
+  "real_har_import_report": "har-import-verification.json",
+  "independent_review": {
+    "completed": true,
+    "blockers_found": 2,
+    "blockers_fixed": 2,
+    "fixes_rechecked": true
+  },
+  "real_ganamos_launch_verified": false,
+  "ci": "Workflow runs on Linux and Windows after publication; consult repository Actions for the result of each commit."
+}

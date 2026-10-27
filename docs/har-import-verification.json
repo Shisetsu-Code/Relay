@@ -1,0 +1,26 @@
+{
+  "passed": true,
+  "network_calls": 0,
+  "source": "user-provided Ganamos HAR (not included in repository)",
+  "counts": {
+    "network_entries": 327,
+    "request_body_available": 312,
+    "no_response": 2,
+    "request_body_unavailable": 15,
+    "response_body_unavailable": 2
+  },
+  "import_summary": {
+    "entries": 377,
+    "imported": 327,
+    "skipped": {
+      "data": 50
+    }
+  },
+  "doInit_import": {
+    "method": "POST",
+    "has_session_key": true,
+    "replay_check_accepts": true
+  },
+  "no_request_replayed": true,
+  "no_values_or_credential_hashes_recorded": true
+}

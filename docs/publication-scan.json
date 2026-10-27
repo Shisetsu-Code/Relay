@@ -1,0 +1,10 @@
+{
+  "verified_at": "2026-10-27T18:07:17.511404+00:00",
+  "passed": true,
+  "scope": "Publication files checked against known credentials and cookie values from the supplied Ganamos HAR, including common encoded representations.",
+  "minimum_substring_length": 8,
+  "files_checked": 21,
+  "original_hars_included": false,
+  "captures_or_ca_private_keys_included": false,
+  "secret_values_or_hashes_recorded": false
+}
