@@ -114,8 +114,8 @@ class SessionTests(unittest.TestCase):
             first = relay.create_session(data_dir)
             second = relay.create_session(data_dir)
             self.assertNotEqual(first.session_dir, second.session_dir)
-            self.assertEqual(first.ca_dir, data_dir / "ca")
-            self.assertEqual(first.session_dir.parent, data_dir / "sessions")
+            self.assertTrue(first.ca_dir.samefile(data_dir / "ca"))
+            self.assertTrue(first.session_dir.parent.samefile(data_dir / "sessions"))
             self.assertRegex(first.session_dir.name, r"^\d{8}T\d{6}\.\d{6}Z-[0-9a-f]+$")
             self.assertEqual(first.capture_path, first.session_dir / "traffic.mitm")
             self.assertEqual(first.report_path, first.session_dir / "audit.jsonl")
@@ -208,7 +208,7 @@ class EngineConfigurationTests(unittest.IsolatedAsyncioTestCase):
         har = self.root / "sensitive.har"
         har.write_text('{"log":{"entries":[]}}', encoding="utf-8")
         _, _, options = await self.configure("--har", str(har))
-        self.assertEqual(options.rfile, str(har))
+        self.assertTrue(Path(options.rfile).samefile(har))
         self.assertEqual(options.client_replay, [])
         self.assertEqual(options.server_replay, [])
 
@@ -216,7 +216,7 @@ class EngineConfigurationTests(unittest.IsolatedAsyncioTestCase):
         ca = self.root / "upstream-ca.pem"
         ca.write_bytes(b"loaded when a TLS connection is made")
         _, _, options = await self.configure("--upstream-ca", str(ca))
-        self.assertEqual(options.ssl_verify_upstream_trusted_ca, str(ca))
+        self.assertTrue(Path(options.ssl_verify_upstream_trusted_ca).samefile(ca))
         self.assertFalse(options.ssl_insecure)
 
     async def test_percent_characters_in_data_directory_are_not_strftime_templates(self):
